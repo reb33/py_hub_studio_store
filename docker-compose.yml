@@ -1,0 +1,14 @@
+services:
+
+  postgres:
+    image: reg.inplatlabs.ru/vendor/postgres:13.5
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: store
+    command: postgres -c shared_buffers=256MB -c max_connections=200
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "redbox"]
