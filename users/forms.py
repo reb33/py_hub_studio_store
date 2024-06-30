@@ -10,7 +10,7 @@ class UserLoginForm(AuthenticationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ["username", "password"]
 
     # username = forms.CharField(
     #     label="Имя пользователя",
